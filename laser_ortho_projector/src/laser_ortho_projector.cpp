@@ -73,7 +73,7 @@ LaserOrthoProjector::LaserOrthoProjector (ros::NodeHandle nh, ros::NodeHandle nh
   // **** subscribe to laser scan messages
 
   scan_subscriber_ = nh_.subscribe(
-    "scan", 10, &LaserOrthoProjector::scanCallback, this);
+    "/scan_filtered", 10, &LaserOrthoProjector::scanCallback, this);
 
   if (use_pose_)
   {
@@ -83,13 +83,13 @@ LaserOrthoProjector::LaserOrthoProjector (ros::NodeHandle nh, ros::NodeHandle nh
   if (use_imu_)
   {
     imu_subscriber_ = nh_.subscribe(
-      "imu/data", 10, &LaserOrthoProjector::imuCallback, this);
+      "/mavros/imu/data", 10, &LaserOrthoProjector::imuCallback, this);
   }
 
   // **** advertise orthogonal scan
 
   cloud_publisher_ = nh_.advertise<PointCloudT>(
-    "cloud_ortho", 10);
+    "point_cloud", 10);
 }
 
 LaserOrthoProjector::~LaserOrthoProjector()
