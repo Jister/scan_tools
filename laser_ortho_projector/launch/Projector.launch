@@ -25,9 +25,9 @@
 		<param name="max_ang" type="double" value="2.2689" />
 	</node> 
 
-	<node pkg="laser_ortho_projector" type="laser_ortho_projector_node" name="laser_ortho_projector" 
-	output="screen">
+	<node pkg="laser_ortho_projector" type="laser_ortho_projector_node" name="laser_ortho_projector" output="screen">
 		<param name="use_imu" type="bool" value="true"/>
+		<param name="use_pose" type="bool" value="false"/>
 		<param name="publish_tf" type="bool" value="true"/>
 	</node>
 
